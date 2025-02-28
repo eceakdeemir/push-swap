@@ -1,7 +1,6 @@
-
 #include "pushswap.h"
 
-void sa(t_list **head)
+void	sa(t_list **head)
 {
 	t_list	*first;
 	t_list	*second;
@@ -15,7 +14,7 @@ void sa(t_list **head)
 	*head = second;
 }
 
-void sb(t_list **head)
+void	sb(t_list **head)
 {
 	t_list	*first;
 	t_list	*second;
@@ -28,12 +27,13 @@ void sb(t_list **head)
 	second->next = first;
 	*head = second;
 }
-void ss(t_list **head_a, t_list **head_b)
+
+void	ss(t_list **head_a, t_list **head_b)
 {
 	sa(head_a);
 	sb(head_b);
 }
-
+/*
 int main()
 {
 	t_list *node1 = malloc(sizeof(t_list));
@@ -53,4 +53,4 @@ int main()
 	sa(&node1);
 	printf("%d %d\n", node1->number, node1->next->number);
 
-}
+}*/
