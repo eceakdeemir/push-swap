@@ -5,7 +5,8 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = actions_s.c
+SRC = actions_s.c actions_r.c actions_p.c actions_rr.c parse_functions.c parse_functions_utils.c \
+		ft_split.c
 
 all: $(NAME)
 
