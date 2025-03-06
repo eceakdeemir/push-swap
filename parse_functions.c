@@ -46,26 +46,28 @@ char	*ft_strdup(const char *s1)
 	return (str);
 }
 
-void parse(int ac, char **av)
+char	**parse(int ac, char **av)
 {
 	int i;
 	char *full_argv;
-	char **argv_with_split;
+	char **new_argv;
 
+	full_argv = ft_strdup("");
 	i = 1;
 	if (ac >= 2)
 	{
 		while (i < ac)
 		{
-			while (av[i])
-			{
-				full_argv = ft_strjoin(full_argv, av[i]);
-				i++;
-			}
+			full_argv = ft_strjoin(full_argv, av[i]);
+			i++;
 		}
-		argv_with_split = ft_split(full_argv, ' ');
-		//printf("%s %s %s %s %s %s\n", argv_with_split[0], argv_with_split[1], argv_with_split[2], argv_with_split[3], argv_with_split[4], argv_with_split[5]);
+		new_argv = ft_split(full_argv, ' ');
+		free(full_argv);
+		//printf(".%s. .%s. .%s. .%s. .%s. .%s.\n",	new_argv[0],	new_argv[1],	new_argv[2],	new_argv[3],	new_argv[4],	new_argv[5]);
 	}
+	else
+		return NULL;
+	return (new_argv);
 }
 /*
 int main(int ac, char **av)

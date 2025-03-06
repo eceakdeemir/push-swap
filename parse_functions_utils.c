@@ -1,17 +1,5 @@
 #include "pushswap.h"
 
-t_list	*ft_lstnew(int content)
-{
-	t_list	*new_node;
-
-	new_node = malloc(sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->number = content;
-	new_node->next = NULL;
-	return (new_node);
-}
-
 size_t	ft_strlen(const char *s)
 {
 	int	i;
@@ -37,7 +25,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	size_t	len1;
 	size_t	len2;
@@ -52,6 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(str + len1, s2, len2);
 	str[len1 + len2] = ' ';
 	str[len1 + len2 + 1] = '\0';
+	free(s1);
 	return (str);
 }
 
