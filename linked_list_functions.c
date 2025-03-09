@@ -5,6 +5,7 @@ t_list	*ft_lstnew(int content)
 	t_list	*new_node;
 
 	new_node = malloc(sizeof(t_list));
+	new_node->match_node = malloc(sizeof(t_list *));
 	if (!new_node)
 		return (NULL);
 	new_node->number = content;

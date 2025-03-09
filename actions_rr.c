@@ -19,6 +19,7 @@ void rra(t_list **head_a)
 	second_last->next = NULL;
 	last->next = head;
 	*head_a = last;
+	//printf("sa\n");
 }
 
 void rrb(t_list **head_b)
@@ -44,8 +45,21 @@ void rrb(t_list **head_b)
 
 void rrr(t_list **head_a, t_list **head_b)
 {
+	t_list *head_list_a;
+	t_list *head_list_b;
+
+	head_list_a = *head_a;
+	head_list_b = *head_b;
 	rra(head_a);
 	rrb(head_b);
+	if (head_list_a->index == ft_lstsize(head_list_a))
+			head_list_a->index = 0;
+	else
+		head_list_a->index += 1;
+	if (head_list_b->index == ft_lstsize(head_list_b))
+			head_list_b->index = 0;
+	else
+		head_list_b->index += 1;
 }
 /*
 int main()

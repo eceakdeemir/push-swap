@@ -10,6 +10,7 @@ void	pa(t_list **head_a, t_list **head_b)
 	(*head_b)->next = *head_a;
 	*head_a = *head_b;
 	(*head_b) = tmp;
+	
 }
 
 void	pb(t_list **head_a, t_list **head_b)

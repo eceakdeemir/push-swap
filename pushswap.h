@@ -9,9 +9,11 @@ typedef struct s_list
 {
 	int				number;
 	int				index;
-	int				cost;
+	int				total_cost;
+	int				cost_top;
+	int				cost_match;
+	struct s_list	*match_node;
 	struct s_list	*next;
-
 }	t_list;
 
 void	sa(t_list **head);
@@ -49,6 +51,20 @@ int 	fill_node(char **new_argv, t_list **head);
 
 int set_top_calc(t_list **head_a, t_list *tmp_a);
 void cost_calc(t_list **head_a, t_list **head_b);
+int set_b_position(t_list **head_b, t_list *tmp_a);
+
+int		this_is_top(t_list **head_a, t_list *tmp);
+t_list	*which_node_push(t_list **head_list_a);
+int		this_is_which_half(t_list **head_list, t_list *tmp);
+void	push_nodes_both_control(t_list **head_list_a, t_list **head_list_b, t_list *push_node);
+void 	push_nodes_single_control(t_list **head_list_a, t_list **head_list_b, t_list *push_node, t_list *match_node);
+int		push_nodes_b(t_list **head_list_a, t_list **head_list_b);
+
+
+
+//--------test--------
+void test_list_printer(t_list **head_a);
+
 
 
 
