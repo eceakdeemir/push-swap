@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:06:26 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/10 17:47:26 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:24:08 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	rotate_last_list(t_list **head_list)
 			rra(head_list, 1);
 	}
 }
+//argüman girilmediğinde seg alıyor!!!!
 
 int main(int ac, char **av)
 {
-	//argv girmediğinde seg
 	int ctrl;
 	int ctrl2;
 	char **new_argv;
@@ -60,37 +60,29 @@ int main(int ac, char **av)
 	ctrl = check_argv_digit(new_argv);
 	fill_node(new_argv, head_a);
 	ctrl2= check_argv(head_a);
-	if (ctrl != 1 || ctrl2 != 1)
+	if (ctrl != 1 || ctrl != 1)
 		exit(0);
 	pb(head_a, head_b);
 	pb(head_a, head_b);
 	while(head_a)
 	{
-		//printf("uzunluk: %d\n", ft_lstsize(*head_a));
-		if (ft_lstsize(*head_a) == 3)
-		{
-			sorted_three(t_list *head_a)
-			
-		}
-			break;
-		else if(ft_lstsize(*head_a) > 3)
+		if(ft_lstsize(*head_a) > 2)
 		{
 			cost_calc(head_a, head_b);
 			push_nodes_b(head_a, head_b);
 		}
+		if (ft_lstsize(*head_a) == 2)
+			break;
 	}
 	head_b_list = *head_b;
 	while(head_b)
 	{
-		// printf("--------------B---------\n");
-		// test_list_printer(head_b);
-		// printf("--------------A---------\n");
 		set_a_position(head_a, *head_b);
 		push_a_back(head_a, head_b);
 		if (ft_lstsize(*head_b) == 0)
-		break ;
+			break ;
 	}
-	test_list_printer(head_a);
 	rotate_last_list(head_a);
+	//test_list_printer(head_a);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:07:05 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/10 17:20:38 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/10 17:55:15 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	sorted_three(t_list **head)
 		ra(head, 1);
 	if (check_argv_sorted(head) == 0)
 		sa(head);
-	
 }
 
 int fill_node(char **new_argv, t_list **head)
