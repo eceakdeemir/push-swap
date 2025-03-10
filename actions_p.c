@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions_p.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/10 13:49:04 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/03/10 13:49:33 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 void	pa(t_list **head_a, t_list **head_b)
@@ -10,7 +22,7 @@ void	pa(t_list **head_a, t_list **head_b)
 	(*head_b)->next = *head_a;
 	*head_a = *head_b;
 	(*head_b) = tmp;
-	
+	printf("pa\n");
 }
 
 void	pb(t_list **head_a, t_list **head_b)
@@ -23,4 +35,5 @@ void	pb(t_list **head_a, t_list **head_b)
 	(*head_a)->next = *head_b;
 	*head_b = *head_a;
 	(*head_a) = tmp;
+	printf("pb\n");
 }

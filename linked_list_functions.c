@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_list_functions.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/10 15:07:09 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/03/10 15:07:10 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 t_list	*ft_lstnew(int content)
@@ -5,7 +17,8 @@ t_list	*ft_lstnew(int content)
 	t_list	*new_node;
 
 	new_node = malloc(sizeof(t_list));
-	new_node->match_node = malloc(sizeof(t_list *));
+	new_node->match_node = malloc(sizeof(t_list *) * 5);
+
 	if (!new_node)
 		return (NULL);
 	new_node->number = content;

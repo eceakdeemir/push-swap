@@ -49,30 +49,34 @@ int set_top_calc_b(t_list **head_list_a, t_list **head_list_b, t_list *tmp)
     return (-1);
 }
 //verilen node'un b'de kendinden küçük en büyük node'unun yukarı çıkması için gereken adım sayısı
+
 int set_b_position(t_list **head_b, t_list *tmp_a)
 {
     t_list  *head;
+    t_list  *best_node;
     t_list  *max_node;
 
     head = *head_b;
-    max_node = tmp_a;
-    tmp_a->match_node = head;
-    while(head)
+    max_node = head;
+    best_node = NULL;
+    while (head)
     {
         if (max_node->number < head->number)
             max_node = head;
         if (tmp_a->number > head->number)
         {
-            if (tmp_a->match_node->number < head->number)
-                    tmp_a->match_node = head;
+            if (best_node == NULL)
+                best_node = head;
+            if (best_node->number < head->number)
+                best_node = head;
         }
         head = head->next;
     }
-    if (tmp_a->match_node == *head_b && !(tmp_a->number > tmp_a->match_node->number))
+    tmp_a->match_node = best_node;
+    if (best_node == NULL)
         tmp_a->match_node = max_node;
     return 0;
 }
-
 
 void    cost_calc(t_list **head_a, t_list **head_b)
 {

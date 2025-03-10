@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions_r.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/10 15:06:34 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/03/10 15:50:57 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
-void ra(t_list **head_a)
+void ra(t_list **head_a, int flag)
 {
 	t_list	*first;
 	t_list *second;
@@ -15,9 +27,11 @@ void ra(t_list **head_a)
 	tmp->next = first;
 	first->next = NULL;
 	*head_a = second;
+	if (flag == 1)
+		printf("ra\n");
 }
 
-void rb(t_list **head_b)
+void rb(t_list **head_b, int flag)
 {
 	t_list	*first;
 	t_list *second;
@@ -32,12 +46,15 @@ void rb(t_list **head_b)
 	tmp->next = first;
 	first->next = NULL;
 	*head_b = second;
+	if (flag == 1)
+		printf("rb\n");
 }
 
 void rr(t_list **head_a, t_list **head_b)
 {
-	ra(head_a);
-	rb(head_b);
+	ra(head_a, 0);
+	rb(head_b, 0);
+	printf("rr\n");
 }
 /*
 int main()

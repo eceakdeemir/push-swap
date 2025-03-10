@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_argv.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/10 15:06:57 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/03/10 17:01:46 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
-static int check_argv_sorted(t_list **head_a)
+int check_argv_sorted(t_list **head_a)
 {
 	t_list *head;
 
@@ -39,10 +51,14 @@ int check_argv(t_list **head_a)
 {
 	int ctrl1;
 	int ctrl2;
-
+	if (ft_lstsize(*head_a) < 3)
+		return (0);
 	ctrl1 = check_argv_sorted(head_a);
 	ctrl2 = check_argv_unique(head_a);
-	return (ctrl1 && ctrl2);
+	if (ctrl1 == 0 || ctrl2 == 0)
+		return (0);
+	return (1);
+	
 }
 
 int check_argv_digit(char **new_argv)

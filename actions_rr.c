@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions_rr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/10 15:06:45 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/03/10 15:49:46 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
-void rra(t_list **head_a)
+void rra(t_list **head_a, int flag)
 {
 	t_list *head;
 	t_list *second_last;
@@ -19,10 +31,11 @@ void rra(t_list **head_a)
 	second_last->next = NULL;
 	last->next = head;
 	*head_a = last;
-	//printf("sa\n");
+	if (flag == 1)
+		printf("rra\n");
 }
 
-void rrb(t_list **head_b)
+void rrb(t_list **head_b, int flag)
 {
 	t_list *head;
 	t_list *second_last;
@@ -41,6 +54,8 @@ void rrb(t_list **head_b)
 	second_last->next = NULL;
 	last->next = head;
 	*head_b = last;
+	if (flag == 1)
+		printf("rrb\n");
 }
 
 void rrr(t_list **head_a, t_list **head_b)
@@ -50,8 +65,8 @@ void rrr(t_list **head_a, t_list **head_b)
 
 	head_list_a = *head_a;
 	head_list_b = *head_b;
-	rra(head_a);
-	rrb(head_b);
+	rra(head_a, 0);
+	rrb(head_b, 0);
 	if (head_list_a->index == ft_lstsize(head_list_a))
 			head_list_a->index = 0;
 	else
@@ -60,6 +75,7 @@ void rrr(t_list **head_a, t_list **head_b)
 			head_list_b->index = 0;
 	else
 		head_list_b->index += 1;
+	printf("rrr\n");
 }
 /*
 int main()

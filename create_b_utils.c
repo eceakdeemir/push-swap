@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_b_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/10 15:07:03 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/03/10 15:52:30 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "pushswap.h"
 
@@ -35,7 +47,7 @@ t_list *which_node_push(t_list **head_list_a)
 	while (head_a)
 	{
 		if (this_node->total_cost > head_a->total_cost)
-			this_node->total_cost = head_a->total_cost;
+			this_node = head_a;
 		head_a = head_a->next;
 	}
 	return (this_node);
@@ -47,15 +59,14 @@ void push_nodes_single_control(t_list **head_list_a, t_list **head_list_b, t_lis
 
 	half_a = this_is_which_half(head_list_a, push_node);
 	half_b = this_is_which_half(head_list_b, match_node);
-	test_list_printer(head_list_a);
 	while ((half_a == 1) && (this_is_top(head_list_a, push_node) != 1))
-		ra(head_list_a);
+		ra(head_list_a, 1);
 	while ((half_b == 1) && (this_is_top(head_list_b, match_node) != 1))
-		rb(head_list_b);
+		rb(head_list_b, 1);
 	while ((half_a == 2) && (this_is_top(head_list_a, push_node) != 1))
-		rra(head_list_a);
+		rra(head_list_a, 1);
 	while ((half_b == 2) && (this_is_top(head_list_b, match_node) != 1))
-		rrb(head_list_b);
+		rrb(head_list_b, 1);
 }
 
 void	push_nodes_both_control(t_list **head_list_a, t_list **head_list_b, t_list *push_node)
@@ -74,10 +85,7 @@ void	push_nodes_both_control(t_list **head_list_a, t_list **head_list_b, t_list 
 		half_b = this_is_which_half(head_list_b, push_node->match_node);
 	}
 	if (this_is_top(head_list_a, push_node) != 1)
-	{
 		push_nodes_single_control(head_list_a, head_list_b, push_node, push_node->match_node);
-		test_list_printer(head_list_a); //burda patlıyoo
-	}
 	else if (this_is_top(head_list_b, push_node->match_node) != 1)
 		push_nodes_single_control(head_list_a, head_list_b, push_node, push_node->match_node);
 }
