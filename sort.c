@@ -11,7 +11,7 @@ int set_top_calc(t_list **head_list, t_list *tmp)
     list_size = ft_lstsize(head);
     tmp_size = ft_lstsize(tmp);
 
-    if (tmp_size < (list_size / 2))
+    if (tmp_size <= (list_size / 2))
     {
         tmp->cost_top = tmp_size;
         return (1); // ikinci yarı
@@ -35,8 +35,7 @@ int set_top_calc_b(t_list **head_list_a, t_list **head_list_b, t_list *tmp)
     head_a = *head_list_a;
     list_size_b = ft_lstsize(head_b);
     tmp_size_b = ft_lstsize(tmp);
-
-    if (tmp_size_b < (list_size_b / 2))
+    if (tmp_size_b <= (list_size_b / 2))
     {
         head_a->cost_match = tmp_size_b;
         return (1); // ikinci yarı
@@ -83,23 +82,25 @@ void    cost_calc(t_list **head_a, t_list **head_b)
     t_list  *tmp_a;
     int     ctrl_a;
     int     ctrl_b;
+    int     ctrl_c;
 
     tmp_a = *head_a;
-    tmp_a->total_cost = 0;
     while (tmp_a)
     {
+        tmp_a->total_cost = 0;
         ctrl_a = set_top_calc(head_a, tmp_a);
         ctrl_b = set_b_position(head_b, tmp_a);
-        if ((ctrl_a == ctrl_b) && ((ctrl_a != -1 || ctrl_b != -1)))
+        ctrl_c = set_top_calc_b(&tmp_a, head_b, tmp_a->match_node);
+        if ((ctrl_a == ctrl_c) && ((ctrl_a != -1 || ctrl_b != -1 || ctrl_c != -1)))
         {
-            while ((tmp_a->cost_top > 0) && (tmp_a->match_node->cost_match > 0))
+            while ((tmp_a->cost_top > 0) && (tmp_a->cost_match > 0))
             {
                 tmp_a->cost_top--;
-                tmp_a->match_node->cost_match--;
+                tmp_a->cost_match--;
                 tmp_a->total_cost++;
             }
         }
-        tmp_a->total_cost += (tmp_a->cost_top + tmp_a->match_node->cost_match);
+        tmp_a->total_cost += (tmp_a->cost_top + tmp_a->cost_match);
         tmp_a = tmp_a->next;
     }
 }

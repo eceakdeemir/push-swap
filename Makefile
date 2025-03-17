@@ -15,7 +15,7 @@ $(NAME): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o push_swap
 
 clean:
-	rm push_swap
+	rm -f push_swap
 
 fclean: clean
 

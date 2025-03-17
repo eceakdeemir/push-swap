@@ -50,17 +50,14 @@ int main(int ac, char **av)
 	char **new_argv;
 	t_list **head_a;
 	t_list **head_b;
-	t_list *head_a_list;
-	t_list *head_b_list;
 
 	head_a = malloc(sizeof(t_list *));
 	head_b = malloc(sizeof(t_list *));
-	head_a_list = *head_a;
 	new_argv = parse(ac, av);
 	ctrl = check_argv_digit(new_argv);
 	fill_node(new_argv, head_a);
 	ctrl2= check_argv(head_a);
-	if (ctrl != 1 || ctrl != 1)
+	if (ctrl != 1 || ctrl2 != 1)
 		exit(0);
 	pb(head_a, head_b);
 	pb(head_a, head_b);
@@ -74,7 +71,6 @@ int main(int ac, char **av)
 		if (ft_lstsize(*head_a) == 2)
 			break;
 	}
-	head_b_list = *head_b;
 	while(head_b)
 	{
 		set_a_position(head_a, *head_b);
@@ -83,6 +79,6 @@ int main(int ac, char **av)
 			break ;
 	}
 	rotate_last_list(head_a);
-	//test_list_printer(head_a);
+	test_list_printer(head_a);
 }
 

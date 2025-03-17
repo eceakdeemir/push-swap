@@ -43,11 +43,9 @@ int set_a_position(t_list **head_a, t_list *tmp_b)
 
 void push_a_back(t_list **head_list_a, t_list **head_list_b)
 {
-	t_list *head_a;
     t_list *head_b;
     int half;
 
-    head_a = *head_list_a;
     head_b = *head_list_b;
     half = this_is_which_half(head_list_a, head_b->match_node);
     while (half == 1 && (this_is_top(head_list_a, head_b->match_node) != 1))
