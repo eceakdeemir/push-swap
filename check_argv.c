@@ -21,10 +21,10 @@ int check_argv_sorted(t_list **head_a)
 	{
 		if (head && head->next)
 			if (head->number > head->next->number)
-				return 1;
+				return (1);
 		head = head->next;
 	}
-	return 0;
+	return (0);
 }
 
 static int check_argv_unique(t_list **head_a)
@@ -39,23 +39,24 @@ static int check_argv_unique(t_list **head_a)
 		while(tmp)
 		{
 			if (tmp->number == head->number)
-				return 0;
+				return (0);
 			tmp = tmp->next;
 		}
 		head = head->next;
 	}
-	return 1;
+	return (1);
 }
 
 int check_argv(t_list **head_a)
 {
 	int ctrl1;
 	int ctrl2;
-	if (ft_lstsize(*head_a) < 3)
-		return (0);
+
 	ctrl1 = check_argv_sorted(head_a);
 	ctrl2 = check_argv_unique(head_a);
-	if (ctrl1 == 0 || ctrl2 == 0)
+	if (ctrl1 == 0)
+		exit(0);
+	if (ctrl2 == 0)
 		return (0);
 	return (1);
 	
@@ -84,5 +85,19 @@ int check_argv_digit(char **new_argv)
 		i++;
 	}
 	return 1;
+}
+
+int is_sort(t_list **head)
+{
+	t_list *head_a;
+	head_a = *head;
+
+	while (head_a && head_a->next)
+	{
+		if (head_a->number > head_a->next->number)
+			return (0);
+		head_a = head_a->next;
+	}
+	return (1);
 }
 

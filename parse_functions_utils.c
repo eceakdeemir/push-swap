@@ -58,9 +58,9 @@ char	*ft_strjoin(char *s1, char const *s2)
 
 int	ft_atoi(const char *str)
 {
-	int	result;
-	int	sign;
-	int	i;
+	long	result;
+	int		sign;
+	int		i;
 
 	i = 0;
 	sign = 1;
@@ -74,10 +74,11 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
+		result = (result * 10) + (str[i++] - 48);
+	if (result > 2147483647)
 	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
+		printf("Error\n");
+		exit(0);
 	}
 	return (result * sign);
 }

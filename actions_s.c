@@ -24,6 +24,7 @@ void	sa(t_list **head)
 	first->next = second->next;
 	second->next = first;
 	*head = second;
+	printf("sa\n");
 }
 
 void	sb(t_list **head)

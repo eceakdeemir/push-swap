@@ -31,7 +31,7 @@ void	sorted_three(t_list **head)
 	}
 	if (max_node->index == 0)
 		ra(head, 1);
-	if (check_argv_sorted(head) == 0)
+	if (is_sort(head) == 0)
 		sa(head);
 }
 

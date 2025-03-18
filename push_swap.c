@@ -43,41 +43,62 @@ void	rotate_last_list(t_list **head_list)
 }
 //argüman girilmediğinde seg alıyor!!!!
 
-int main(int ac, char **av)
+int check_error(char **new_argv, t_list **head_a)
 {
 	int ctrl;
 	int ctrl2;
-	char **new_argv;
-	t_list **head_a;
-	t_list **head_b;
 
-	head_a = malloc(sizeof(t_list *));
-	head_b = malloc(sizeof(t_list *));
-	new_argv = parse(ac, av);
 	ctrl = check_argv_digit(new_argv);
 	fill_node(new_argv, head_a);
 	ctrl2= check_argv(head_a);
-	if (ctrl != 1 || ctrl2 != 1)
+	if (ft_lstsize(*head_a) == 1)
 		exit(0);
-	pb(head_a, head_b);
-	pb(head_a, head_b);
-	while(head_a)
+	if (ctrl != 1 || ctrl2 != 1)
+	{
+		printf("Error\n");
+		exit(0);
+	}
+	return (1);
+}
+void sort_a_b_list(t_list **head_a, t_list **head_b)
+{
+	if (ft_lstsize(*head_a) <= 3)
+		sorted_three(head_a);
+	else
+	{
+		pb(head_a, head_b);
+		pb(head_a, head_b);
+	}
+	while(head_a && (*head_a))
 	{
 		if(ft_lstsize(*head_a) > 2)
 		{
 			cost_calc(head_a, head_b);
 			push_nodes_b(head_a, head_b);
 		}
-		if (ft_lstsize(*head_a) == 2)
+		if (ft_lstsize(*head_a) <= 2)
 			break;
 	}
-	while(head_b)
+	while(head_b && (*head_b))
 	{
 		set_a_position(head_a, *head_b);
 		push_a_back(head_a, head_b);
 		if (ft_lstsize(*head_b) == 0)
 			break ;
 	}
+}
+
+int main(int ac, char **av)
+{
+	char	**new_argv;
+	t_list **head_a;
+	t_list **head_b;
+
+	head_a = malloc(sizeof(t_list *));
+	head_b = malloc(sizeof(t_list *));
+	new_argv = parse(ac, av);
+	check_error(new_argv, head_a);
+	sort_a_b_list(head_a, head_b);
 	rotate_last_list(head_a);
 	test_list_printer(head_a);
 }
