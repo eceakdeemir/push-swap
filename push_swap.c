@@ -50,13 +50,14 @@ int check_error(char **new_argv, t_list **head_a)
 
 	ctrl = check_argv_digit(new_argv);
 	fill_node(new_argv, head_a);
+	free(new_argv);
 	ctrl2= check_argv(head_a);
 	if (ft_lstsize(*head_a) == 1)
-		exit(0);
+		free_all_nodes(head_a, NULL);
 	if (ctrl != 1 || ctrl2 != 1)
 	{
 		printf("Error\n");
-		exit(0);
+		free_all_nodes(head_a, NULL);
 	}
 	return (1);
 }
@@ -100,6 +101,7 @@ int main(int ac, char **av)
 	check_error(new_argv, head_a);
 	sort_a_b_list(head_a, head_b);
 	rotate_last_list(head_a);
+	free_all_nodes(head_a, head_b);
 	test_list_printer(head_a);
 }
 

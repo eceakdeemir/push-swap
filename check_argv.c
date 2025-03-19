@@ -55,7 +55,7 @@ int check_argv(t_list **head_a)
 	ctrl1 = check_argv_sorted(head_a);
 	ctrl2 = check_argv_unique(head_a);
 	if (ctrl1 == 0)
-		exit(0);
+		free_all_nodes(head_a, NULL);
 	if (ctrl2 == 0)
 		return (0);
 	return (1);

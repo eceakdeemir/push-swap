@@ -74,10 +74,10 @@ char	**parse(int ac, char **av)
 			i++;
 		}
 		new_argv = ft_split(full_argv, ' ');
-		free(full_argv);
 		//printf(".%s. .%s. .%s. .%s. .%s. .%s.\n",	new_argv[0],	new_argv[1],	new_argv[2],	new_argv[3],	new_argv[4],	new_argv[5]);
 	}
-	else
+	free(full_argv);
+	if(ac < 2)
 		return NULL;
 	return (new_argv);
 }

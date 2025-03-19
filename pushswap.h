@@ -69,6 +69,8 @@ void	push_a_back(t_list **head_list_a, t_list **head_list_b);
 int check_argv_sorted(t_list **head_a);
 void	sorted_three(t_list **head);
 int		is_sort(t_list **head);
+void free_all_nodes(t_list **head_a, t_list **head_b);
+
 
 
 
