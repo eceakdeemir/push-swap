@@ -41,7 +41,6 @@ void	rotate_last_list(t_list **head_list)
 			rra(head_list, 1);
 	}
 }
-//argüman girilmediğinde seg alıyor!!!!
 
 int check_error(char **new_argv, t_list **head_a)
 {
@@ -50,7 +49,7 @@ int check_error(char **new_argv, t_list **head_a)
 
 	ctrl = check_argv_digit(new_argv);
 	fill_node(new_argv, head_a);
-	free(new_argv);
+	del(new_argv, 0);
 	ctrl2= check_argv(head_a);
 	if (ft_lstsize(*head_a) == 1)
 		free_all_nodes(head_a, NULL);
@@ -97,7 +96,11 @@ int main(int ac, char **av)
 
 	head_a = malloc(sizeof(t_list *));
 	head_b = malloc(sizeof(t_list *));
+	*head_a = NULL;
+	*head_b = NULL;
 	new_argv = parse(ac, av);
+	if (new_argv == NULL)
+		free_all_nodes(head_a, head_b);
 	check_error(new_argv, head_a);
 	sort_a_b_list(head_a, head_b);
 	rotate_last_list(head_a);

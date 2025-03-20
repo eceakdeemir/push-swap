@@ -13,15 +13,26 @@
 
 #include "pushswap.h"
 
-static int	del(char **str, int strc)
+int	del(char **str, int strc)
 {
 	int	i;
 
 	i = 0;
-	while (i < strc)
+	if (strc == 0)
 	{
-		free(str[i]);
-		i++;
+		while (str[i])
+		{
+			free(str[i]);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < strc)
+		{
+			free(str[i]);
+			i++;
+		}
 	}
 	free (str);
 	return (1);
