@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_argv_utils.c                                 :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 15:06:54 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/21 15:54:28 by ecakdemi         ###   ########.fr       */
+/*   Created: 2024/11/07 20:13:06 by ecakdemi          #+#    #+#             */
+/*   Updated: 2024/12/07 17:40:11 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "ft_printf.h"
 
-int	ft_isdigit(int c)
+int	ft_strlen(char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

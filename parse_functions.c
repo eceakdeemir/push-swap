@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:07:16 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/10 15:07:17 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:06:45 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ char	*ft_strdup(const char *s1)
 
 char	**parse(int ac, char **av)
 {
-	int i;
-	char *full_argv;
-	char **new_argv;
+	int		i;
+	char	*full_argv;
+	char	**new_argv;
 
 	full_argv = ft_strdup("");
 	i = 1;
@@ -76,7 +76,7 @@ char	**parse(int ac, char **av)
 		new_argv = ft_split(full_argv, ' ');
 	}
 	free(full_argv);
-	if(ac < 2)
-		return NULL;
+	if (ac < 2)
+		return (NULL);
 	return (new_argv);
 }

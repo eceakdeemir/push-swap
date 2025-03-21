@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:07:09 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/10 15:07:10 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:06:01 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,17 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-int ft_lstsize(t_list *head)
+int	ft_lstsize(t_list *head)
 {
-    t_list  *tmp;
-    int     i;
+	t_list	*tmp;
+	int		i;
 
-    tmp = head;
-    i = 0;
-    while (tmp)
-    {
-        i++;
-        tmp = tmp->next;
-    }
-    return (i);
+	tmp = head;
+	i = 0;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }

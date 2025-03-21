@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:07:14 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/10 15:07:15 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:06:14 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,3 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
-

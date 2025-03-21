@@ -11,15 +11,12 @@ SRC = actions_s.c actions_r.c actions_p.c actions_rr.c parse_functions.c parse_f
 		ft_split.c check_argv_utils.c check_argv.c fill_node.c linked_list_functions.c push_swap.c \
 		sort.c create_b_utils.c push_a_back.c free_nodes.c
 
-BNS_SRC = checker_bonus.c fill_node_bonus.c parse_bonus.c parse_utils_bonus.c 
 
 all: $(NAME)
 
 $(NAME): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o push_swap
 
-bonus: $(BNS_SRC) $(SRC_GNL)
-	$(CC) $(CFLAGS) $(BNS_SRC) $(SRC_GNL) -o checker_bonus
 
 clean:
 	rm -f push_swap

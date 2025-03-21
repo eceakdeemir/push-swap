@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:07:05 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/10 17:55:15 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:02:51 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	sorted_three(t_list **head)
 {
-	t_list *head_a;
-	t_list *max_node;
-	
+	t_list	*head_a;
+	t_list	*max_node;
+
 	head_a = *head;
 	max_node = head_a;
 	max_node->index = 0;
-	while(head_a)
+	while (head_a)
 	{
 		if (max_node->number < head_a->number)
 		{
@@ -35,17 +35,17 @@ void	sorted_three(t_list **head)
 		sa(head);
 }
 
-int fill_node(char **new_argv, t_list **head)
+int	fill_node(char **new_argv, t_list **head)
 {
-	int i;
-	int content;
+	int	i;
+	int	content;
 
 	i = 0;
 	while (new_argv[i])
 	{
 		content = ft_atoi(new_argv[i]);
-		ft_lstadd_back(head,ft_lstnew(content));
+		ft_lstadd_back(head, ft_lstnew(content));
 		i++;
 	}
-	return 1;
+	return (1);
 }

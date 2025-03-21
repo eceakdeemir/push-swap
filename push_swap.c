@@ -6,27 +6,27 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:06:26 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/10 18:24:08 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:10:44 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void test_list_printer(t_list **head_a)
+/*void	test_list_printer(t_list **head_a)
 {
-	t_list *tmp;
+	t_list	*tmp;
 	tmp = *head_a;
 	for (; tmp; tmp = tmp->next)
 		printf("num: %d\n", tmp->number);
-}
+}*/
 void	rotate_last_list(t_list **head_list)
 {
-	t_list *head;
-	t_list *min_node;
+	t_list	*head;
+	t_list	*min_node;
 
 	head = *head_list;
 	min_node = head;
-	while(head)
+	while (head)
 	{
 		if (min_node->number > head->number)
 			min_node = head;
@@ -42,25 +42,26 @@ void	rotate_last_list(t_list **head_list)
 	}
 }
 
-int check_error(char **new_argv, t_list **head_a)
+int	check_error(char **new_argv, t_list **head_a)
 {
-	int ctrl;
-	int ctrl2;
+	int	ctrl;
+	int	ctrl2;
 
 	ctrl = check_argv_digit(new_argv);
 	fill_node(new_argv, head_a);
 	del(new_argv, 0);
-	ctrl2= check_argv(head_a);
+	ctrl2 = check_argv(head_a);
 	if (ft_lstsize(*head_a) == 1)
 		free_all_nodes(head_a, NULL);
 	if (ctrl != 1 || ctrl2 != 1)
 	{
-		printf("Error\n");
+		ft_printf("Error\n");
 		free_all_nodes(head_a, NULL);
 	}
 	return (1);
 }
-void sort_a_b_list(t_list **head_a, t_list **head_b)
+
+void	sort_a_b_list(t_list **head_a, t_list **head_b)
 {
 	if (ft_lstsize(*head_a) <= 3)
 		sorted_three(head_a);
@@ -69,17 +70,17 @@ void sort_a_b_list(t_list **head_a, t_list **head_b)
 		pb(head_a, head_b);
 		pb(head_a, head_b);
 	}
-	while(head_a && (*head_a))
+	while (head_a && (*head_a))
 	{
-		if(ft_lstsize(*head_a) > 2)
+		if (ft_lstsize(*head_a) > 2)
 		{
 			cost_calc(head_a, head_b);
 			push_nodes_b(head_a, head_b);
 		}
 		if (ft_lstsize(*head_a) <= 2)
-			break;
+			break ;
 	}
-	while(head_b && (*head_b))
+	while (head_b && (*head_b))
 	{
 		set_a_position(head_a, *head_b);
 		push_a_back(head_a, head_b);
@@ -88,11 +89,11 @@ void sort_a_b_list(t_list **head_a, t_list **head_b)
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	char	**new_argv;
-	t_list **head_a;
-	t_list **head_b;
+	t_list	**head_a;
+	t_list	**head_b;
 
 	head_a = malloc(sizeof(t_list *));
 	head_b = malloc(sizeof(t_list *));
@@ -107,4 +108,3 @@ int main(int ac, char **av)
 	free_all_nodes(head_a, head_b);
 	test_list_printer(head_a);
 }
-

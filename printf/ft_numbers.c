@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_argv_utils.c                                 :+:      :+:    :+:   */
+/*   ft_numbers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 15:06:54 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/21 15:54:28 by ecakdemi         ###   ########.fr       */
+/*   Created: 2024/12/07 15:10:44 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/03/14 22:06:46 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "ft_printf.h"
 
-int	ft_isdigit(int c)
+int	ft_putnbr(long number)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	if (number < 0)
+	{
+		i += ft_putchar('-');
+		number *= -1;
+	}
+	if (number > 9)
+	{
+		i += ft_putnbr(number / 10);
+		i += ft_putchar((number % 10 + '0'));
+	}
+	else
+		i += ft_putchar((number % 10 + '0'));
+	return (i);
 }

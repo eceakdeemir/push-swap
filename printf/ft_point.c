@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_argv_utils.c                                 :+:      :+:    :+:   */
+/*   ft_point.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 15:06:54 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/21 15:54:28 by ecakdemi         ###   ########.fr       */
+/*   Created: 2024/12/07 15:10:27 by ecakdemi          #+#    #+#             */
+/*   Updated: 2024/12/08 14:39:14 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "ft_printf.h"
 
-int	ft_isdigit(int c)
+int	ft_point(unsigned long c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	if (!c)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	i += ft_putstr("0x");
+	i += ft_hex_lower(c);
+	return (i);
 }
